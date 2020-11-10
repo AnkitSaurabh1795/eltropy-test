@@ -1,0 +1,11 @@
+com\eltropy\test\bankingsystem\JwtResponse.class
+com\eltropy\test\bankingsystem\BaseApplication.class
+com\eltropy\test\bankingsystem\userprofiles\UserController.class
+com\eltropy\test\bankingsystem\JwtRequest.class
+com\eltropy\test\bankingsystem\JwtTokenUtil.class
+com\eltropy\test\bankingsystem\userprofiles\UserInfoRepository.class
+com\eltropy\test\bankingsystem\JwtUserDetailsService.class
+com\eltropy\test\bankingsystem\JwtAuthenticationEntryPoint.class
+com\eltropy\test\bankingsystem\JwtAuthenticationController.class
+com\eltropy\test\bankingsystem\JwtRequestFilter.class
+com\eltropy\test\bankingsystem\userprofiles\UserInfo.class
