@@ -16,18 +16,29 @@ public class UserInfo {
 	private String userrole;
 	private String contactNo;
 	private String emailId;
+	private String token;
 	
+	
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public String getContactNo() {
+		return contactNo;
+	}
 	public String getContacNo() {
 		return contactNo;
 	}
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
-	}
-	public String getEmail_id() {
-		return emailId;
-	}
-	public void setEmail_id(String emailId) {
-		this.emailId = emailId;
 	}
 	public String getUserrole() {
 		return userrole;

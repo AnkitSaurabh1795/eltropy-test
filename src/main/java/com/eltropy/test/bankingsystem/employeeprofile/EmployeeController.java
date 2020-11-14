@@ -2,7 +2,6 @@ package com.eltropy.test.bankingsystem.employeeprofile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eltropy.test.bankingsystem.pojo.UserDetails;
 import com.eltropy.test.bankingsystem.service.EmployeeService;
-import com.eltropy.test.bankingsystem.userprofiles.UserInfo;
-import com.eltropy.test.bankingsystem.userprofiles.UserInfoRepository;
 
 @RestController
 @RequestMapping("/users")
