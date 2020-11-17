@@ -3,7 +3,7 @@ package com.eltropy.test.bankingsystem.pojo;
 public class TransactionDetails {
 	private Integer transactionid;
 	private Integer fromaccount;
-	private String toaccount;
+	private Integer toaccount;
 	private Integer amount;
 	public Integer getTransactionid() {
 		return transactionid;
@@ -17,10 +17,10 @@ public class TransactionDetails {
 	public void setFromaccount(Integer fromaccount) {
 		this.fromaccount = fromaccount;
 	}
-	public String getToaccount() {
+	public Integer getToaccount() {
 		return toaccount;
 	}
-	public void setToaccount(String toaccount) {
+	public void setToaccount(Integer toaccount) {
 		this.toaccount = toaccount;
 	}
 	public Integer getAmount() {
