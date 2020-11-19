@@ -9,6 +9,7 @@ import com.eltropy.test.bankingsystem.pojo.CustomerDetails;
 import com.eltropy.test.bankingsystem.repo.Account;
 import com.eltropy.test.bankingsystem.repo.AccountRepository;
 import com.eltropy.test.bankingsystem.repo.Customer;
+import com.eltropy.test.bankingsystem.utility.CalculateInterest;
 @Service
 public class AccountServiceImpl implements AccountService{
 	@Autowired
@@ -19,6 +20,25 @@ public class AccountServiceImpl implements AccountService{
 		Account  accountdb = accountRepository.save((this.beanToEntity(account))) ;
 		account.setAccountnumber(accountdb.getAccountnumber());
 		return account;
+	}
+	@Override
+	public Integer getAccountBalance(Integer accountNumber) {
+		Account  accountdb =accountRepository.findOne(accountNumber);
+		if(accountdb == null) {
+			throw new RuntimeException("Account No not find");
+		}
+		return accountdb.getBalance();
+	}
+	public Integer updateAccountBalance(Integer accountNumber) {
+		Account  accountdb =accountRepository.findOne(accountNumber);
+		if(accountdb == null) {
+			throw new RuntimeException("Account No not find");
+		}
+		CalculateInterest calculator = new CalculateInterest();
+		Integer updatedAmount = calculator.interestCalculator(accountdb.getBalance(), (Integer)12, 3.5, (Integer)1);
+		accountdb.setBalance(updatedAmount);
+		accountRepository.save(accountdb) ;
+		return updatedAmount;
 	}
 	public CustomerDetails entityToBean(Customer entity) {
 		CustomerDetails customer = new CustomerDetails();

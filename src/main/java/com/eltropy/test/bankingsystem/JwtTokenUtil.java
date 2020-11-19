@@ -5,19 +5,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import org.slf4j.Logger;
+import org.slf4j.event.Level;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
 
 @Component
 public class JwtTokenUtil {
 
 	
-	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+	public static final long JWT_TOKEN_VALIDITY = 365 * 60 * 60;
 
 	@Value("${jwt.secret}")
 	private String secret;
@@ -40,7 +44,7 @@ public class JwtTokenUtil {
 	}
 
 	// check if the token has expired
-	private Boolean isTokenExpired(String token) {
+	public Boolean isTokenExpired(String token) {
 		final Date expiration = getExpirationDateFromToken(token);
 		return expiration.before(new Date());
 	}
@@ -51,9 +55,18 @@ public class JwtTokenUtil {
 	}
 
 	private String doGenerateToken(Map<String, Object> claims, String subject) {
+		try {
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY*1000))
 				.signWith(SignatureAlgorithm.HS512, secret).compact();
+		}catch (ExpiredJwtException e) {
+			    System.out.println(" Token expired ");
+			} catch (SignatureException e) {
+				 System.out.println(" Some Signature exception in JWT parsing ");
+			} catch(Exception e){
+			    System.out.println(" Some other exception in JWT parsing ");
+			}
+		return "INVALID_TOKEN";
 	}
 
 	// validate token

@@ -6,4 +6,5 @@ public interface CustomerService {
 	CustomerDetails addCustomer(CustomerDetails customer);
 	void deleteCustomer(Integer customerId);
 	boolean updateCustomer(CustomerDetails customer);
+	CustomerDetails getCustomerDetails(Integer customerId);
 }

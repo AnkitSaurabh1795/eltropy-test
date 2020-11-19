@@ -1,10 +1,19 @@
 package com.eltropy.test.bankingsystem.pojo;
 
+import java.util.Date;
+
 public class TransactionDetails {
 	private Integer transactionid;
 	private Integer fromaccount;
 	private Integer toaccount;
 	private Integer amount;
+	private String date;
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String currentdate) {
+		this.date = currentdate;
+	}
 	public Integer getTransactionid() {
 		return transactionid;
 	}

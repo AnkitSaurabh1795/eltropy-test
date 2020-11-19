@@ -9,7 +9,10 @@ import com.eltropy.test.bankingsystem.repo.Account;
 import com.eltropy.test.bankingsystem.repo.AccountRepository;
 import com.eltropy.test.bankingsystem.repo.Transaction;
 import com.eltropy.test.bankingsystem.repo.TransactionRepository;
-import java.time.Instant;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 @Service
 public class TransactionServiceImpl implements TransactionService{
 	@Autowired
@@ -26,6 +29,11 @@ public class TransactionServiceImpl implements TransactionService{
 		}else if(accountdbto == null) {
 			return "Account number" + transaction.getToaccount() + "does not exist";
 		}else {
+			if(transaction.getDate() == null) {
+				DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+				String currentdate = dateFormatter.format(new Date());
+				transaction.setDate(currentdate);
+			}
 			if(accountdb.getBalance() >= transaction.getAmount()) {
 				try {
 					accountdb.setBalance(accountdb.getBalance() - transaction.getAmount());

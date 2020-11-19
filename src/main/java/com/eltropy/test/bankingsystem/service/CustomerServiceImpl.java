@@ -18,6 +18,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setCustomerid(customer1.getCustomerid());
 		return customer;
 	}
+	
 	@Override
 	public boolean updateCustomer(CustomerDetails customer1) {
 		// TODO Auto-generated method stub
@@ -35,6 +36,15 @@ public class CustomerServiceImpl implements CustomerService {
 		if(customer == null)
 			return false;
 		return true;
+	}
+	@Override
+	public CustomerDetails getCustomerDetails(Integer customerId) {
+		Customer  customer = customerRepository.findOne(customerId);
+		if(customer == null) {
+			throw new RuntimeException("Customer Id not find");
+		}
+		CustomerDetails customer1 = entityToBean(customer);
+		return customer1;
 	}
 	@Override
 	public void deleteCustomer(Integer customerId) {
