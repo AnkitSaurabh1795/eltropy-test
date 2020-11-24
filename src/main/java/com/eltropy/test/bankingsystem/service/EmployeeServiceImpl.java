@@ -29,7 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if(userInfo == null) {
 			throw new RuntimeException("User Id not find");
 		}
-		this.userInfoRepository.save(userInfo);
+		this.userInfoRepository.delete(userInfo);
 	}
 	public UserDetails entityToBean(UserInfo entity) {
 		UserDetails user = new UserDetails();

@@ -59,11 +59,6 @@ public class JwtAuthenticationController {
 		}
 		return ResponseEntity.ok(new JwtResponse("User is already logged in"));
 
-//		UserInfo user=new UserInfo();
-//		user.setUsername(authenticationRequest.getUsername());
-//		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//		userInfoRepository.save(user);
-
 	}
 
 	private Authentication authenticate(String username, String password) throws Exception {

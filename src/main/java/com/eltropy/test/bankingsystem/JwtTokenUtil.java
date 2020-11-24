@@ -21,7 +21,7 @@ import io.jsonwebtoken.SignatureException;
 public class JwtTokenUtil {
 
 	
-	public static final long JWT_TOKEN_VALIDITY = 365 * 60 * 60;
+	public static final long JWT_TOKEN_VALIDITY = 24 * 8 * 60 * 60;
 
 	@Value("${jwt.secret}")
 	private String secret;

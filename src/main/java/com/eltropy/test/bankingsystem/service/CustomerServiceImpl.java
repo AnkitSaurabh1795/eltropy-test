@@ -26,6 +26,8 @@ public class CustomerServiceImpl implements CustomerService {
 		if(customer == null) {
 			throw new RuntimeException("Customer Id not find");
 		}
+		if(customer1.getCustomername() != null)
+			customer.setCustomername(customer1.getCustomername());
 		if(customer1.getKycinfo() != null)
 			customer.setKycinfo(customer1.getKycinfo());
 		if(customer1.getEmailid() != null)
@@ -53,7 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
 		if(customer == null) {
 			throw new RuntimeException("Customer Id not find");
 		}
-		this.customerRepository.save(customer);
+		this.customerRepository.delete(customer);
 	}
 	public CustomerDetails entityToBean(Customer entity) {
 		CustomerDetails customer = new CustomerDetails();

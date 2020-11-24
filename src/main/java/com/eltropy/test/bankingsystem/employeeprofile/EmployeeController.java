@@ -24,6 +24,7 @@ public class EmployeeController {
 		return this.employeeService.addEmployee(user);
 	}
 	@DeleteMapping("/deleteEmployee/{userId}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public void deleteEmployee(@PathVariable Integer userId) {
 		this.employeeService.deleteEmployee(userId);
 	}

@@ -32,8 +32,13 @@ public class UserController {
 	}
 	@PostMapping("/signup")
 	public void signUp(@RequestBody UserInfo user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		userInfoRepository.save(user);
+		if(user.getUsername() != null && user.getPassword() != null && user.getUsername() != "" && user.getPassword() != "") {
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			userInfoRepository.save(user);
+		}
+		else {
+			LOGGER.info("UserInfo:{}","Username or password can not be empty");
+		}
 	}
 	@PostMapping("/logout")
 	public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response){
@@ -63,10 +68,4 @@ public class UserController {
 		return ResponseEntity.ok(new JwtResponse("User is already logged out"));
 	}
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-
-//	@PostMapping("/addEmployee")
-//	public void addEmployee(@RequestBody UserInfo user) {
-//		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//		userInfoRepository.save(user);
-//	}
 }

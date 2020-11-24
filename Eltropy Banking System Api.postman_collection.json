@@ -1,0 +1,494 @@
+{
+	"info": {
+		"_postman_id": "abe92117-5963-49aa-9f82-74f16e7d2c23",
+		"name": "Eltropy Banking System Api",
+		"description": "Api Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8086/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\":\"\",\r\n\"password\":\"\",\r\n\"userrole\":\"EMPLOYEE\",\r\n\"contact_no\":\"8765056323\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"users",
+						"signup"
+					]
+				},
+				"description": "{\r\n\"username\":\"firstuser\",\r\n\"password\":\"password\",\r\n\"userrole\":\"EMPLOYEE\",\r\n\"contact_no\":\"8765056323\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "httpauthtoken",
+						"value": "kTeN2r3joHVskQtsCmMqgJkICjP9wCB3",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\":\"saurabh\",\r\n\"password\":\"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"authenticate"
+					]
+				},
+				"description": "Used to log in a user and it will return authentication token.\r\ninput fro this api is:\r\n{\r\n\"username\":\"saurabh\",\r\n\"password\":\"password\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/users/logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "httpauthtoken",
+						"value": "kTeN2r3joHVskQtsCmMqgJkICjP9wCB3",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdHNhdXJhYmgiLCJleHAiOjE2MDUwNTE2NjcsImlhdCI6MTYwNTAzMzY2N30.p-M69XAdqXQnychr4PI1V9QzVax9oDLsAxsr96WC6oa7KOwkLdXjrCcmD-MPG6ebYSlWYhM73Koo8IKKUr1fzA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8086/users/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"users",
+						"logout"
+					]
+				},
+				"description": "This api will logout current active user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/users/addEmployee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtbXBsb3llZSIsImV4cCI6MTYwNzQ0MzMwNiwiaWF0IjoxNjA2MTI5MzA2fQ.y9bVX4fqQqr9_Hzr2vqF7gX7DfUlzz-oV7JSupfyNmSDUgtlNcnPn0WwKmFhWscJugyqgiLiM2IeJNeVC8jrsg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\":\"ankitemployee1\",\r\n\"password\":\"password\",\r\n\"userrole\":\"EMPLOYEE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/users/addEmployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"users",
+						"addEmployee"
+					]
+				},
+				"description": "This api will be used by admin to add employee.\r\nInput for this api is:\r\n{\r\n\"username\":\"ankitemployee1\",\r\n\"password\":\"password\",\r\n\"userrole\":\"EMPLOYEE\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/users/deleteEmployee/3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdHNhdXJhYmgiLCJleHAiOjE2MDY5MjI3NDgsImlhdCI6MTYwNjIzMTU0OH0.SntHXtukZTzOuJ6VjmSNFx-V0FAKNuhT5XbE8ZtLmyU1VzmLFIW4owGvkoyyogLP3uIIqgzdBAdpvnINpJX_KQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/users/deleteEmployee/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"users",
+						"deleteEmployee",
+						"3"
+					]
+				},
+				"description": "Delete request give user id with pathvariabl"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/addCustomer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"customername\":\"ankitcustomer1\",\r\n\"emailid\" : \"customername@domain.com\",\r\n\"phonenumber\":\"8876543456\",\r\n\"kycinfo\":\"no\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/addCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"addCustomer"
+					]
+				},
+				"description": "Employee use this api add customer\r\ninput is:\r\n{\r\n\"customername\":\"ankitcustomer1\",\r\n\"emailid\" : \"customername@domain.com\",\r\n\"phonenumber\":\"8876543456\",\r\n\"kycinfo\":\"no\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/createAccount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "httpauthtoken",
+						"value": "kTeN2r3joHVskQtsCmMqgJkICjP9wCB3",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"customerid\":\"5\",\r\n\"accounttype\":\"savings\",\r\n\"balance\":\"21000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/createAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"createAccount"
+					]
+				},
+				"description": "Employee creates account\r\nInput is :\r\n{\r\n\"customerid\":\"5\",\r\n\"accounttype\":\"savings\",\r\n\"balance\":\"21000\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/updateCustomer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"customerid\":\"4\",\r\n\"customername\":\"ankitcustomernew\",\r\n\"emailid\" : \"newcustomer@domain.com\",\r\n\"phonenumber\":\"8999862499\",\r\n\"kycinfo\":\"no\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/updateCustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"updateCustomer"
+					]
+				},
+				"description": "Employee can update customer details and kyc\r\ninput is :\r\n{\r\n \"customerid\":\"4\",\r\n\"customername\":\"ankitcustomernew\",\r\n\"emailid\" : \"newcustomer@domain.com\",\r\n\"phonenumber\":\"8999862499\",\r\n\"kycinfo\":\"no\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086//getCustomerDetails/3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8086//getCustomerDetails/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"",
+						"getCustomerDetails",
+						"3"
+					]
+				},
+				"description": "Employee can get cutomer details.\r\nI/p: get request with pathvariable customerid"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/deleteCustomer/5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/deleteCustomer/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"deleteCustomer",
+						"5"
+					]
+				},
+				"description": "Employee used this to delete customes by passing delete request wit hpath variable customer id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/getAccountBalance/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8086/getAccountBalance/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"getAccountBalance",
+						"2"
+					]
+				},
+				"description": "Employee can get account balance by passing account number as pathvariable in get request"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/doTransaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "httpauthtoken",
+						"value": "kTeN2r3joHVskQtsCmMqgJkICjP9wCB3",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"fromaccount\":\"2\",\r\n\"toaccount\":\"1\",\r\n\"amount\":\"1500\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/doTransaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"doTransaction"
+					]
+				},
+				"description": "Employee can transfer money from one account to other by using post request \r\ni/p is:\r\n{\r\n\"fromaccount\":\"2\",\r\n\"toaccount\":\"1\",\r\n\"amount\":\"1500\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/generatePdf",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "httpauthtoken",
+						"value": "kTeN2r3joHVskQtsCmMqgJkICjP9wCB3",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"accountno\":\"2\",\r\n\"fromdate\":\"2020-11-17 13:07:48\",\r\n\"todate\":\"2020-11-24 13:07:48\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/generatePdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"generatePdf"
+					]
+				},
+				"description": "can get Account statement in pdf file \r\ninput is:\r\n{\r\n\"accountno\":\"2\",\r\n\"fromdate\":\"2020-11-17 13:07:48\",\r\n\"todate\":\"2020-11-24 13:07:48\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8086/updateAccountBalance/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmtpdGVtcGxveWVlMSIsImV4cCI6MTYwNjkyNDM4NiwiaWF0IjoxNjA2MjMzMTg2fQ.JheGoPCKcU_FHNHD_U-DCgrznvqJVHSAJlrNHYOUoHyAPZ56Aa19t5Ib4goZOqzk4XajmGKJJOAPYfqB4TCtvA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8086/updateAccountBalance/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"updateAccountBalance",
+						"2"
+					]
+				},
+				"description": "Get request is used to calculate interest and update acoount balance path variable with acount number is passed to request"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
